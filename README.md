@@ -10,7 +10,7 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 ## API and Data Sample
 
-(http://ergast.com/api/f1/2020/5/results "Ergast F1 API")
+[Ergast F1 API sample](http://ergast.com/api/f1/2020/5/results "Ergast F1 API")
 
 ```
 {
