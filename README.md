@@ -2,11 +2,11 @@
 
 ## Project Name
 
-The name of your project.
+JWS
 
 ## Project Description
 
-Project_name is an app that allows users to search for Formula 1 race results by year and round.
+JWS is an app that allows users to search for Formula 1 race results by year and round.
 
 ## API and Data Sample
 
