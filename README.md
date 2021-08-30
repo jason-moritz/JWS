@@ -825,7 +825,7 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 ```
 ## Wireframes
 
-[Wireframe for mainpage, results, details, and breakpoint styling](https://i.imgur.com/znXqaWa.jpg "Wireframes for mainpage, results, and details, plus breakpoint styling.")
+![Wireframe for mainpage, results, details, and breakpoint styling](https://i.imgur.com/znXqaWa.jpg "Wireframes for mainpage, results, and details, plus breakpoint styling.")
 
 ### MVP/PostMVP
 
@@ -858,7 +858,7 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 ## Priority Matrix
 
-[Priority Matrix link](https://i.imgur.com/kQu5W4E.jpg "Priority Matrix")
+![Priority Matrix](https://i.imgur.com/kQu5W4E.jpg "Priority Matrix")
 
 ## Timeframes
 
