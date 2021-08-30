@@ -97,17 +97,16 @@ const raceButtonHTML = document.querySelector("#race-button");
 async function raceButtonAPI(event) {
     try {
         event.preventDefault();
+
+
         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
         // console.log(response.data);
 
-        let resultInfo = response.data.MRData.RaceTable.Races[0].Results;
-        console.log(resultInfo);
+        let resultArr = response.data.MRData.RaceTable.Races[0].Results;
+        // console.log(resultInfo);
 
 
-
-
-        
-        displayResults(`${resultInfo[0].Constructor.name} ${resultInfo[0].Driver.givenName}`, `${resultInfo[1].Constructor.name} ${resultInfo[1].Driver.givenName}`, `${resultInfo[2].Constructor.name} ${resultInfo[2].Driver.givenName}`)
+        displayResults(`${resultArr[0].Constructor.name} ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`)
 
 
     } catch(error) {
@@ -115,29 +114,36 @@ async function raceButtonAPI(event) {
     }
 }
 
+
 raceButtonHTML.addEventListener("click", raceButtonAPI);
 
 
 // **********DISPLAY RESULTS**********
 
 const firstPlaceResultsHTML = document.querySelector("#first-results");
-const secondPlaceResultsHTML = document.querySelector("#second-results")
-const thirdPlaceResultsHTML = document.querySelector("#third-results")
+const secondPlaceResultsHTML = document.querySelector("#second-results");
+const thirdPlaceResultsHTML = document.querySelector("#third-results");
+let allResultsHTML = document.querySelectorAll(".results");
 
 // Need function to create and append results
+// Need function to remove old results
+// Need to add a forEach loop to remove old results
+// Need to create 3 separate h5 to append to first, second, and third place divs respectively
+
+function removeInfo() {
+    allResultsHTML.forEach((oldResult) => {
+        oldResult.innerHTML = "";
+    })
+}
 
 
 function displayResults(result1, result2, result3) {
-        
+    removeInfo();    
+
     let firstPlace = document.createElement("h5");
     let secondPlace = document.createElement("h5");
     let thirdPlace = document.createElement("h5");
     
-    
-    firstPlace.innerText = "";
-    secondPlace.innerText = "";
-    thirdPlace.innerText = "";
-
 
     firstPlace.innerText = result1;
     secondPlace.innerText = result2;
@@ -149,4 +155,45 @@ function displayResults(result1, result2, result3) {
     thirdPlaceResultsHTML.append(thirdPlace);
 
 
+    allResultsHTML.forEach((newResult) => {
+        let detailsButton = document.createElement("button");
+        detailsButton.innerText = "Details";
+        newResult.append(detailsButton);
+        detailsButton.addEventListener("click", (e) => {
+            displayDetailsAPI(e)   
+        })
+    })
+}
+
+
+// **********DISPLAY DETAILS**********
+
+// Added event listener in the display results to each details button
+// Need async function to re-pull results info
+// Need display
+async function displayDetailsAPI(e) {
+    try {
+        let response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`)
+        let detailsArr = response.data.MRData.RaceTable.Races[0].Results;
+
+
+        displayDetails(`Total Time - ${detailsArr[e].Time.time}  Fastest Lap - ${detailsArr[e].FastestLap.Time.time}`)
+
+
+
+        console.log(detailsArr);
+
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+// Need function to append details in replace of race results
+
+function displayDetails (detail) {
+    let newDetails = document.createElement("h5");
+
+    
+    newDetails.innerText = detail;
+    this.append(newDetails);
 }

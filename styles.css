@@ -24,7 +24,9 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-content: center;
+    align-items: center;
     padding: 50px 50px;
+    margin: 50px 50px;
     width: 90vw;
     height: 90vh;
 }
