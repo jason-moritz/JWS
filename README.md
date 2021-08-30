@@ -138,8 +138,8 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTML structure | H | 1hr |  |  |
-| Basic CSS structure | H | 1hr |  |  |
+| Basic HTML structure | H | 1hr |  | 30min |
+| Basic CSS structure | H | 1hr |  | 1hr |
 | JS app logic for API requests | H | 1hr |  |  |
 | JS test API endpoints | H | 3hrs|  |  |
 | JS Drop-down menu 1  | H | 3hrs|  |  |
