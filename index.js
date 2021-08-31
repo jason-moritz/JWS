@@ -51,7 +51,7 @@ async function dropDownCircuitsAPI() {
         // console.log(racesArr)
 
 
-        // The data is returning an array of races w/ objects, so will need to loop through to assign circuit name to each option and round to the value
+        // The data is returning an array of races w/ objects, so will need to loop through to assign circuit name to each option and round to the value. Function to come below.
   
         dropDownCircuits(racesArr);
         
@@ -62,15 +62,18 @@ async function dropDownCircuitsAPI() {
     }
 }
 
+
 dropDownCircuitsAPI();
 
 
 // Need function to append circuit name to drop down box
 
 function dropDownCircuits(circuits) {
+// First, clear old circuit results
     dropDownCircuitsHTML.innerText = "";
 
 
+// Loop through array of circuits and create option and append each circuit
     circuits.forEach((circuit) => {
         const option = document.createElement("option");
         option.innerText = circuit.raceName;
@@ -111,7 +114,7 @@ async function raceButtonAPI(event) {
     }
 }
 
-
+// Need event listener on race button to pull results using API function above
 raceButtonHTML.addEventListener("click", raceButtonAPI);
 
 
@@ -137,6 +140,7 @@ function removeInfo() {
 function displayResults(result1, result2, result3) {
     removeInfo();    
 
+// Created 3 separate elements instead of forEach loop to assign and append individually. Re-visit to increase efficiency. 
     let firstPlace = document.createElement("h5");
     let secondPlace = document.createElement("h5");
     let thirdPlace = document.createElement("h5");
@@ -151,16 +155,11 @@ function displayResults(result1, result2, result3) {
     secondPlaceResultsHTML.append(secondPlace);
     thirdPlaceResultsHTML.append(thirdPlace);
 
+
     addButtons();
-    // allResultsHTML.forEach(() => {
-    //     let detailsButton = document.createElement("button");
-    //     detailsButton.innerText = "Details";
-    // })
 }
 
-
-
-
+// Made buttons separate function. Not sure if necessary or more efficient than having this in the display results function above.
 function addButtons() {
     let firstPlaceButton = document.createElement("button");
     let secondPlaceButton = document.createElement("button");
@@ -206,17 +205,19 @@ async function displayDetailsAPI(id) {
     try {
         let response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`)
         let detailsArr = response.data.MRData.RaceTable.Races[0].Results;
-        
-        console.log(id);
-        console.log(detailsArr);
-        console.log(detailsArr[id].Time.time);
+        // console.log(id);
+        // console.log(detailsArr);
+        // console.log(detailsArr[id].Time.time);
 
+// conditional to check for fastest lap
         if (detailsArr[id].FastestLap) {
             displayDetails(`Total Time: ${detailsArr[id].Time.time} --- Fastest Lap: ${detailsArr[id].FastestLap.Time.time}`, resultsDiv[id]);    
+
 
         } else {
             displayDetails(`Total Time: ${detailsArr[id].Time.time}`, resultsDiv[id]);
         }
+
 
     } catch(error) {
         console.log(error)
@@ -225,7 +226,7 @@ async function displayDetailsAPI(id) {
 
 // Need function to append details in replace of race results
 // Need event listener on new button
-// Need to go back to results, so will use original API function
+// Need to go back to results on click, so will use original API function
 
 function displayDetails(detail, location) {
         location.innerText = "";
