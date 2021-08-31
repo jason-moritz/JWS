@@ -110,7 +110,7 @@ async function raceButtonAPI(event) {
         
         
         } else if (resultArr[1].Driver.givenName == "Lewis") {
-            displayResults("h3", "h5", `${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} 'Toto, my tires' ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
+            displayResults("h3", "h5", `${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} 'Bono, my tires' ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         
 
         } else {
@@ -240,11 +240,11 @@ async function displayDetailsAPI(id) {
 
 // conditional to check for fastest lap
         if (detailsArr[id].FastestLap) {
-            displayDetails(`Total Time: ${detailsArr[id].Time.time} --- Fastest Lap: ${detailsArr[id].FastestLap.Time.time}`, resultsDiv[id]);    
+            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, `Fastest Lap: ${detailsArr[id].FastestLap.Time.time}`, resultsDiv[id], "h5", "h5");    
 
 
         } else {
-            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, resultsDiv[id]);
+            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, "", resultsDiv[id], "h5", "h6");
         }
 
 
@@ -257,13 +257,20 @@ async function displayDetailsAPI(id) {
 // Need event listener on new button
 // Need to go back to results on click, so will use original API function
 
-function displayDetails(detail, location) {
+function displayDetails(totalTime, fastestLap, location, size1, size2) {
         location.innerText = "";
     
 
-        let newDetails = document.createElement("h5");
-        newDetails.innerText = detail;
-        location.append(newDetails);
+        let newDetail1 = document.createElement(size1);
+        let newDetail2 = document.createElement(size2)
+        
+        
+        newDetail1.innerText = totalTime;
+        newDetail2.innerText = fastestLap;
+        
+        
+        location.append(newDetail1);
+        location.append(newDetail2);
 
 
         let newButton = document.createElement("button");

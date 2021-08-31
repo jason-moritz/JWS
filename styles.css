@@ -19,7 +19,7 @@ body {
 /* **********NAV BAR STYLING********** */
 
 nav {
-    background-color: red;
+    background-color: #D30F0F;
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
@@ -145,9 +145,9 @@ select {
     z-index: 1;
     width: 75%;
     align-content: space-between;
+    align-items: center;
     text-align: center;
     font-size: x-large;
-    padding: 0 0 10px 0;
     margin: 10px;
     border-radius: 5%;
 }
@@ -155,7 +155,7 @@ select {
 .results button {
     display: flex;
     text-align: center;
-    margin: 0 auto;
+    margin: 0 0 10px 0;
 }
 
 * h3, * h5 {
