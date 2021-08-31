@@ -105,9 +105,17 @@ async function raceButtonAPI(event) {
         let resultArr = response.data.MRData.RaceTable.Races[0].Results;
         // console.log(resultInfo);
 
+        if (resultArr[0].Driver.givenName == "Lewis") {
+            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName} AKA THE GOAT`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+        
+        
+        } else if (resultArr[1].Driver.givenName == "Lewis") {
+            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} 'Bono, my tires' ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+        
 
-        displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`)
-
+        } else {
+            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+        }
 
     } catch(error) {
         console.log(error);
