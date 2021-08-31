@@ -126,7 +126,7 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 |August 27-29| Prompt / Wireframes / Priority Matrix / Timeframes | Complete
 |August 30| Project Approval / Core Application Structure (HTML, CSS, etc.) | Complete
 |August 31| Pseudocode / actual code | Complete
-|September 1| Initial Clickable Model / MVP  | Incomplete
+|September 1| Initial Clickable Model / MVP  | Complete
 |September 2| Post MVP / Advanced CSS | Incomplete
 |September 3| Presentations | Incomplete
 
@@ -138,34 +138,30 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 | Component | Priority | Estimated Time | Time Invested | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Basic HTML structure | H | 1hr |  | 30min |
-| Basic CSS structure | H | 1hr |  | 1hr |
-| JS app logic for API requests | H | 1hr |  | 1hr |
-| JS test API endpoints | H | 3hrs|  | 30min |
-| JS Drop-down menu 1  | H | 3hrs|  | 30min |
-| JS Drop-down menu 2 | H | 6hrs|  | 1hr |
-| JS submit button | H | 3hrs |  | 1.5hrs |
-| JS results logic | H | 3hrs |  | 1hr |
-| JS details logic | H | 3hrs |  | 5hrs |
-| CSS style main page  | M | 3hrs |  | 3hrs |
-| CSS style results div | M | 2hrs |  | 1hr |
-| CSS style details div | M | 1hrs |  | 1hr |
-| CSS breakpoint styling | H | 3hrs |  |  |
-| HTML setup for flexbox | H | 1hr |  | 1hr |
-| CSS flexbox styling | H | 3hrs |  | 3hrs |
-| CSS advanced styling | M | 3hrs |  | 1hr |
-| Total | H | 40hrs |  |  |
+| Basic HTML structure | H | 1hr | .5hr | .5hr |
+| Basic CSS structure | H | 1hr | 1hr | 1.5hrs |
+| JS app logic for API requests | H | 1hr | 1hr | 2.5hrs |
+| JS test API endpoints | H | 3hrs| .5hr | 3hrs |
+| JS Drop-down menu 1  | H | 3hrs| .5hr | 3.5hrs |
+| JS Drop-down menu 2 | H | 6hrs| 1hr | 4.5hrs |
+| JS submit button | H | 3hrs | 1.5hrs | 6hrs |
+| JS results logic | H | 3hrs | 1hr | 7hrs |
+| JS details logic | H | 3hrs | 5hrs | 12hrs |
+| CSS style main page  | M | 3hrs | 3hrs | 15hrs |
+| CSS style results div | M | 2hrs | 1hr | 16hrs |
+| CSS style details div | M | 1hr | 1hr | 17hrs |
+| CSS breakpoint styling | H | 3hrs | 2hrs | 19hrs |
+| HTML setup for flexbox | H | 1hr | 1hr | 20hrs |
+| CSS flexbox styling | H | 3hrs | 5hrs | 25hrs |
+| CSS advanced styling | M | 3hrs | 1hr | 26hrs |
+| Total | H | 40hrs |  | 26hrs |
 
 
 ## Code Snippet
 
 Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
 
-```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
+
 
 ## Change Log
  Use this section to document what changes were made and the reasoning behind those changes.  

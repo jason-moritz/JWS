@@ -106,15 +106,15 @@ async function raceButtonAPI(event) {
         // console.log(resultInfo);
 
         if (resultArr[0].Driver.givenName == "Lewis") {
-            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName} AKA THE GOAT`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+            displayResults("h3", "h5", `${resultArr[0].Driver.givenName} THE GOAT ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         
         
         } else if (resultArr[1].Driver.givenName == "Lewis") {
-            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} 'Bono, my tires' ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+            displayResults("h3", "h5", `${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} 'Toto, my tires' ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         
 
         } else {
-            displayResults(`${resultArr[0].Constructor.name} --- ${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[1].Constructor.name} --- ${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[2].Constructor.name} --- ${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`);
+            displayResults("h3", "h5", `${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         }
 
     } catch(error) {
@@ -145,23 +145,44 @@ function removeInfo() {
 }
 
 
-function displayResults(result1, result2, result3) {
+function displayResults(size1, size2, name1, team1, name2, team2, name3, team3) {
     removeInfo();    
 
 // Created 3 separate elements instead of forEach loop to assign and append individually. Re-visit to increase efficiency. 
-    let firstPlace = document.createElement("h5");
-    let secondPlace = document.createElement("h5");
-    let thirdPlace = document.createElement("h5");
+    let firstPlaceName = document.createElement(size1);
+    let firstPlaceTeam = document.createElement(size2);
+
+
+    let secondPlaceName = document.createElement(size1);
+    let secondPlaceTeam = document.createElement(size2);
+
+
+    let thirdPlaceName = document.createElement(size1);
+    let thirdPlaceTeam = document.createElement(size2);
     
 
-    firstPlace.innerText = result1;
-    secondPlace.innerText = result2;
-    thirdPlace.innerText = result3;
+    firstPlaceName.innerText = name1;
+    firstPlaceTeam.innerText = team1;
+    
+    
+    secondPlaceName.innerText = name2;
+    secondPlaceTeam.innerText = team2;
+    
+    
+    thirdPlaceName.innerText = name3;
+    thirdPlaceTeam.innerText = team3;
 
 
-    firstPlaceResultsHTML.append(firstPlace);
-    secondPlaceResultsHTML.append(secondPlace);
-    thirdPlaceResultsHTML.append(thirdPlace);
+    firstPlaceResultsHTML.append(firstPlaceName);
+    firstPlaceResultsHTML.append(firstPlaceTeam);
+
+
+    secondPlaceResultsHTML.append(secondPlaceName);
+    secondPlaceResultsHTML.append(secondPlaceTeam);
+
+
+    thirdPlaceResultsHTML.append(thirdPlaceName);
+    thirdPlaceResultsHTML.append(thirdPlaceTeam);
 
 
     addButtons();
@@ -239,13 +260,16 @@ async function displayDetailsAPI(id) {
 function displayDetails(detail, location) {
         location.innerText = "";
     
+
         let newDetails = document.createElement("h5");
         newDetails.innerText = detail;
         location.append(newDetails);
 
+
         let newButton = document.createElement("button");
-        newButton.innerText = "Back to results";
+        newButton.innerText = "Results";
         location.append(newButton);
 
+        
         newButton.addEventListener("click", raceButtonAPI);
 }
