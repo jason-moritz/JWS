@@ -175,52 +175,48 @@ function addButtons() {
     secondPlaceResultsHTML.append(secondPlaceButton);
     thirdPlaceResultsHTML.append(thirdPlaceButton);
 
-    let buttonsAll = document.querySelectorAll("button");
-    console.log(buttonsAll);
-
+    
     firstPlaceButton.setAttribute("id", 0);
     secondPlaceButton.setAttribute("id", 1);
     thirdPlaceButton.setAttribute("id", 2);
 
-   buttonsAll.forEach((button) => {
-       button.addEventListener("click", (e) => {
-           displayDetailsAPI(e.target.id);
+    firstPlaceButton.addEventListener("click", (e) => {
+        displayDetailsAPI(e.target.id);
         })
-    });
+
+    secondPlaceButton.addEventListener("click", (e) => {
+        displayDetailsAPI(e.target.id);
+        })
+
+    thirdPlaceButton.addEventListener("click", (e) => {
+        displayDetailsAPI(e.target.id);
+         })
 }
-
-    // allResultsHTML.forEach((newResult) => {
-    //     let detailsButton = document.createElement("button");
-    //     detailsButton.innerText = "Details";
-    //     newResult.append(detailsButton);
-        
-    // })
-
 
 
 // **********DISPLAY DETAILS**********
 
-// Added event listener in the display results to each details button
-// Need async function to re-pull results info
-// Need display
-async function displayDetailsAPI(id) {
-    console.log(id);
-    
+let resultsDiv = document.querySelectorAll(".results");
+
+// Need async function to make axios request for race data
+// Need function to display details
+// Need conditional to determine if fastest lap is available
+
+async function displayDetailsAPI(id) {   
     try {
         let response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`)
         let detailsArr = response.data.MRData.RaceTable.Races[0].Results;
+        
+        console.log(id);
         console.log(detailsArr);
         console.log(detailsArr[id].Time.time);
-        
-        if (detailsArr[id].FastestLap.Time.time) {
-            displayDetails(`Overall time --- ${detailsArr[id]?.Time.time}`, `Fastest Lap --- ${detailsArr[id]?.FastestLap.Time.time}`, `Average Speed --- ${detailsArr[id]?.FastestLap.AverageSpeed.speed}`, id)
-        
-        }    else {
-            displayDetails(`fastest lap unknown`)
+
+        if (detailsArr[id].FastestLap) {
+            displayDetails(`Total Time: ${detailsArr[id].Time.time} --- Fastest Lap: ${detailsArr[id].FastestLap.Time.time}`, resultsDiv[id]);    
+
+        } else {
+            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, resultsDiv[id]);
         }
-
-
-        console.log(detailsArr);
 
     } catch(error) {
         console.log(error)
@@ -228,32 +224,19 @@ async function displayDetailsAPI(id) {
 }
 
 // Need function to append details in replace of race results
+// Need event listener on new button
+// Need to go back to results, so will use original API function
 
-function displayDetails (detail1, detail2, detail3, id) {
-    if (id === 0) {
-        firstPlaceResultsHTML.innerText = "";
-    
+function displayDetails(detail, location) {
+        location.innerText = "";
     
         let newDetails = document.createElement("h5");
-        newDetails.innerText = detail1;
-        firstPlaceResultsHTML.append(newDetails);
-    
+        newDetails.innerText = detail;
+        location.append(newDetails);
 
-    } else if (id === 1) {
-        secondPlaceResultsHTML.innerText = "";
-        
-        
-        let newDetails = document.createElement("h5");
-        newDetails.innerText = detail2;
-        secondPlaceResultsHTML.append(newDetails);
-    
+        let newButton = document.createElement("button");
+        newButton.innerText = "Back to results";
+        location.append(newButton);
 
-    } else if (id === 2) {
-        thirdPlaceResultsHTML.innerText = "";
-        
-        
-        let newDetails = document.createElement("h5");
-        newDetails.innerText = detail3;
-        thirdPlaceResultsHTML.append(newDetails);
-    }
+        newButton.addEventListener("click", raceButtonAPI);
 }
