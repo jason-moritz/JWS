@@ -303,6 +303,7 @@ select {
     #drop-down {
         display: flex;
         flex-direction: column;
+        align-items: stretch;
         font-size: medium;
     }
 
