@@ -153,15 +153,51 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 | CSS breakpoint styling | H | 3hrs | 2hrs | 19hrs |
 | HTML setup for flexbox | H | 1hr | 1hr | 20hrs |
 | CSS flexbox styling | H | 3hrs | 5hrs | 25hrs |
-| CSS advanced styling | M | 3hrs | 1hr | 26hrs |
-| Total | H | 40hrs |  | 26hrs |
+| CSS advanced styling | M | 3hrs | 5hr | 30hrs |
+| Total | H | 40hrs |  | 30hrs |
 
 
 ## Code Snippet
 
-Use this section to include a brief code snippet of functionality that you are proud of and a brief description.  
+This code allows me to move page to page, and pull multiple axios requests with one single async function.
+
+```
+let previousPageButtonHTML = document.querySelector("#previous-page");
+let nextPageButtonHTML = document.querySelector("#next-page");
+
+// Need to add event listener for previous and next buttons
+// Need page counter for conditional
+
+let currentPageCount = 0;
 
 
+previousPageButtonHTML.addEventListener("click", (e) => {
+    if (currentPageCount > 0) {
+        currentPageCount -= 1;
+    }
+
+    if (currentPageCount == 0) {
+        driverListAPI(0);
+
+
+    } else {
+        driverListAPI(currentPageCount * 100);
+    }   
+});
+
+
+nextPageButtonHTML.addEventListener("click", (e) => {
+    currentPageCount += 1;
+    
+
+    if (currentPageCount == 0) {
+        driverListAPI(0);
+
+        
+    } else {
+        driverListAPI(currentPageCount * 100);
+    }   
+});
+```
 
 ## Change Log
- Use this section to document what changes were made and the reasoning behind those changes.  

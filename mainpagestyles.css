@@ -45,13 +45,13 @@ body {
 
 /* **********NAV BAR STYLING********** */
 
-nav {
+#nav-bar {
     background-color: #D30F0F;
     display: flex;
     flex-direction: row;
-    margin-bottom: 10px;
     padding: 20px 0px;
     justify-content: center;
+    align-content: center;
     height: 10%;
     border-style: solid;
     border-width: 4px;
@@ -59,19 +59,14 @@ nav {
     border-radius: 10px;
 }
 
-#menu {
-    display: flex;
-    flex-direction: row;
-    border-style: none;
-    font-size: x-large;
-    font-weight: bold;
-    width: 70%;
-}
-
 #drop-down {
     display: flex;
+    border-style: none;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-content: space-around;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 label {
@@ -98,6 +93,7 @@ select, button {
 button {
     box-shadow: 0px 3px 5px #555454;
 }
+
 select:hover, button:hover {
     opacity: 1;
     transform: scale(1.1);
@@ -125,7 +121,6 @@ select {
     padding: 10px 0;
 }
 
-
 /* **********PODIUM CONTAINER STYLING********** */
 
 #podium-container {
@@ -149,7 +144,6 @@ select {
     justify-content: flex-end;
     width: 25%;
 }
-
 
 /* **********PODIUM ORDER********** */
 
@@ -200,305 +194,158 @@ select {
     width: 75%;
     text-align: center;
     font-size: xx-large;
+    font-weight: bold;
     position: relative;
     bottom: 0; 
 }
+
 #podium-1 {
     background-color: #DEDB06;
     height: 75%;   
 }
+
 #podium-2 {
     background-color: #BDBCBB;
     height: 50%;
 }
+
 #podium-3 {
     background-color: #A78882;
     height: 35%;
 }
 
-
-/* **********MEDIA CHANGES for 1110px, 800px, 650px, 450px********** */
-
-@media only screen and (max-width: 1110px) {
-    #menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding: 10px 10px;
-        font-size: medium;
-        font-weight: bold;
-    } 
-
-    label {
-        display: flex;
-        position: relative;
-        text-align: center;
-        align-items: center;
-        font-size: medium;
-        font-weight: bold;
-    }
-
-    #menu select {
-        display: flex;
-        font-size: medium;
-        width: 100%;
-        justify-content: center;
-    }
-
-    #menu button {
-        display: flex;
-        font-size: medium;
-        justify-content: center;
-    }
-
-    #instructions h4 {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        font-size: x-large;
-        margin: 0 auto;
-        padding: 10px 0;
-    }
-}
+/* **********MEDIA CHANGES for 800px, 500px, 400px********** */
 
 @media only screen and (max-width: 800px) {
-    body {
-        width: 100%;
-    }
-    
-    #menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        padding: 10px 10px;
-        font-size: small;
-        font-weight: bold;
-    } 
 
-    label {
-        display: flex;
-        position: relative;
-        text-align: center;
-        align-items: center;
-        font-size: small;
-        font-weight: bold;
+    #drop-down {
+        font-size: medium;
     }
 
-    #menu select {
-        display: flex;
-        font-size: small;
-        justify-content: center;
+    select, button {
+        font-size: medium;
     }
 
-    #menu button {
-        display: flex;
-        font-size: small;
-        justify-content: center;
+    select, #button {
+        margin-left: 2px;
     }
 
     #instructions h4 {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        font-size: x-large;
-        margin: 0 auto;
-        padding: 10px 0;
+        font-size: medium;
     }
 
     .results {
         font-size: medium;
     }
 
-    .results button {
-        font-size: small;
-    }
-
     .podium {
-        font-size: medium;
+        font-size: large;
     }
 }
 
-@media only screen and (max-width: 650px) {
-    
-    body {
-        width: 100%;
-    }
-    
-    #nav-bar {
-        display: flex;
-        justify-content: center;
-        justify-items: center;
-        width: 100%;
-        margin: 0 auto;
-    }
-    #menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        justify-items: center;
-        width: 100%;
-        font-size: small;
-        font-weight: bold;
-    } 
+@media only screen and (max-width: 500px) {
 
-    label {
-        display: flex;
-        position: relative;
-        text-align: center;
-        align-items: center;
+    #drop-down {
         font-size: small;
-        font-weight: bold;
     }
 
-    #menu select {
-        display: flex;
+    select, button {
         font-size: small;
-        justify-content: center;
     }
 
-    #menu button {
-        display: flex;
-        font-size: small;
-        justify-content: center;
+    select, #button {
+        margin-left: 1px;
     }
 
     #instructions h4 {
-        display: flex;
-        text-align: center;
-        justify-content: center;
-        font-size: x-large;
-        margin: 0 auto;
-        padding: 10px 0;
-    }
-
-    .results-container {
-        width: 100%;
-    }
-    .results {
-        font-size: medium;
-    }
-
-    .results button {
         font-size: small;
     }
 
+    .results {
+        font-size: small;
+        width: 120%
+    }
+    
     .podium {
-        font-size: medium;
+        font-size: small;
+        width: 120%;
     }
 }
 
+@media only screen and (max-width: 400px) {
 
-@media only screen and (max-width: 450px) {
-    
-    body {
-        width: 100%;
-    }
-    
-    #header-container {
-        font-size: small;
-    }
-    #nav-bar {
+    #drop-down {
         display: flex;
-        justify-content: center;
-        justify-items: center;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        margin: 0 auto;
-    }
-
-    #menu {
-        display: flex;
-        justify-content: space-evenly;
-        justify-items: center;
-        height: 100%;
-        width: 100%;
-        font-size: small;
-        font-weight: bold;
-    } 
-
-    label {
-        display: flex;
-        position: relative;
         flex-direction: column;
-        text-align: center;
-        align-items: center;
-        font-size: small;
-        font-weight: bold;
+        font-size: medium;
     }
 
-    #menu select {
+    select {
         display: flex;
-        font-size: small;
-        justify-content: center;
+        justify-content: space-around;
+        font-size: medium;
+        width: 100%;
+        margin-left: 3px;
     }
 
-    #menu button {
+    * button {
         display: flex;
-        font-size: small;
+        justify-content: space-around;
+        width: 100%;
         align-items: center;
-        justify-content: center;
+        font-size: medium;
+        margin: 0;
     }
 
     #instructions h4 {
-        display: flex;
-        text-align: center;
-        justify-content: center;
         font-size: medium;
-        margin: 0 auto;
-        padding: 10px 0;
+        text-align: center;
     }
 
     #podium-container {
         display: flex;
         flex-direction: column;
-        height: 100%;
-        justify-content: center;
-        align-content: center;
+        justify-content: space-between;
+        height: auto;
     }
 
     .results-container {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
     }
+
     .results {
         font-size: medium;
-        display: flex;
-        padding: 0;
-        margin: 0;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
+        width: 100%
     }
-
-    .results button {
-        font-size: small;
-    }
-
+    
     .podium {
-        display: none;
+       display: none;
     }
 
     #first-place {
         display: flex;
-        order: 0; 
+        order: 0;
     }
 
     #second-place {
         display: flex;
-        order: 1; 
+        order: 1;
     }
 
     #third-place {
         display: flex;
-        order: 2; 
+        order: 2;
+    }
+
+    #first-results {
+        background-color: #DEDB06;
+    }
+
+    #second-results {
+        background-color: #BDBCBB;
+    }
+
+    #third-results {
+        background-color: #A78882;
     }
 }
-
-
-
-

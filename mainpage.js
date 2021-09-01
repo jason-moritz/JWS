@@ -17,7 +17,6 @@ let yearsArr = [];
 for (let i = 1950; i <= 2021; i++) {
     yearsArr.push(i);
 }
-// console.log(yearsArr);
 
 
 function dropDownYear(years) {
@@ -44,18 +43,15 @@ const dropDownCircuitsHTML = document.querySelector("#circuit-selector");
 async function dropDownCircuitsAPI() {
     try {
         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}.json`);
-        // console.log(response.data);
 
 
         const racesArr = response.data.MRData.RaceTable.Races;
-        // console.log(racesArr)
 
-
+       
         // The data is returning an array of races w/ objects, so will need to loop through to assign circuit name to each option and round to the value. Function to come below.
-  
+
         dropDownCircuits(racesArr);
         
-
 
     } catch(error) {
         console.log(error);
@@ -100,11 +96,12 @@ async function raceButtonAPI(event) {
 
 
         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
-        // console.log(response.data);
+
 
         let resultArr = response.data.MRData.RaceTable.Races[0].Results;
-        // console.log(resultInfo);
 
+
+        // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
         if (resultArr[0].Driver.givenName == "Lewis") {
             displayResults("h3", "h5", `${resultArr[0].Driver.givenName} THE GOAT ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         
@@ -117,12 +114,15 @@ async function raceButtonAPI(event) {
             displayResults("h3", "h5", `${resultArr[0].Driver.givenName} ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         }
 
+
     } catch(error) {
         console.log(error);
     }
 }
 
+
 // Need event listener on race button to pull results using API function above
+
 raceButtonHTML.addEventListener("click", raceButtonAPI);
 
 
@@ -194,6 +194,7 @@ function addButtons() {
     let secondPlaceButton = document.createElement("button");
     let thirdPlaceButton = document.createElement("button");
 
+    
     firstPlaceButton.innerText = "Details";
     secondPlaceButton.innerText = "Details";
     thirdPlaceButton.innerText = "Details";
@@ -208,17 +209,28 @@ function addButtons() {
     secondPlaceButton.setAttribute("id", 1);
     thirdPlaceButton.setAttribute("id", 2);
 
-    firstPlaceButton.addEventListener("click", (e) => {
-        displayDetailsAPI(e.target.id);
-        })
 
-    secondPlaceButton.addEventListener("click", (e) => {
-        displayDetailsAPI(e.target.id);
-        })
+    let allPlaceButton = [firstPlaceButton, secondPlaceButton, thirdPlaceButton];
 
-    thirdPlaceButton.addEventListener("click", (e) => {
-        displayDetailsAPI(e.target.id);
-         })
+
+    allPlaceButton.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            displayDetailsAPI(e.target.id);
+        });
+    });
+
+
+    // firstPlaceButton.addEventListener("click", (e) => {
+    //     displayDetailsAPI(e.target.id);
+    //     })
+
+    // secondPlaceButton.addEventListener("click", (e) => {
+    //     displayDetailsAPI(e.target.id);
+    //     })
+
+    // thirdPlaceButton.addEventListener("click", (e) => {
+    //     displayDetailsAPI(e.target.id);
+    //      })
 }
 
 
@@ -234,11 +246,10 @@ async function displayDetailsAPI(id) {
     try {
         let response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`)
         let detailsArr = response.data.MRData.RaceTable.Races[0].Results;
-        // console.log(id);
-        // console.log(detailsArr);
-        // console.log(detailsArr[id].Time.time);
+       
 
 // conditional to check for fastest lap
+
         if (detailsArr[id].FastestLap) {
             displayDetails(`Total Time: ${detailsArr[id].Time.time}`, `Fastest Lap: ${detailsArr[id].FastestLap.Time.time}`, resultsDiv[id], "h5", "h5");    
 
@@ -252,6 +263,7 @@ async function displayDetailsAPI(id) {
         console.log(error)
     }
 }
+
 
 // Need function to append details in replace of race results
 // Need event listener on new button
