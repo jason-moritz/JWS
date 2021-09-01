@@ -1,21 +1,53 @@
+/* Set general page outline */
+
 body {
     display: flex;
     flex-direction: column;
     max-width: 80%;
     margin: 0 auto;
-    border-style: solid;
+    border-style: none;
     font-family: 'Architects Daughter', cursive, Arial, Helvetica, sans-serif;
 }
+
+/* **********TOP HEADER STYLING********** */
+
+#header-container {
+    display: flex;
+    flex-direction: row;
+    border-style: none;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: medium;
+}
+
+#app-name {
+    display: flex;
+    margin: 0;
+}
+
+#links-container {
+    display: flex;
+    border-style: none;
+    flex-direction: row;
+    
+} 
+
+.header-link {
+    display: flex;
+    margin: 2px;
+}
+
+
 
 #background-container {
     background-image: url("Pictures/vertical-stripes.jpg");
     background-position:center;
     overflow: hidden;
-    z-index: -1;
 }
 
 nav {
-    border-style: none;
+    border-style: solid;
+    border-width: 4px;
     background-color: #D30F0F;
     display: flex;
     flex-direction: column;
@@ -29,14 +61,11 @@ nav {
     font-weight: bold;
 }
 
-header {
-    border-top: solid;
-    border-bottom: solid;
+#directions {
     display: flex;
     justify-content: center;
     font-size: x-large;
     background-color: white;
-    z-index: 1;
 }
 
 button {
@@ -49,7 +78,7 @@ button {
     transition: 100ms;
     border-style:groove;
     background-color: #E6E2E2;
-    box-shadow: 0px 3px 5px #555454
+    box-shadow: 0px 3px 5px #555454;
 }
 
 button:hover {
@@ -73,9 +102,10 @@ button:hover {
     display: flex;
     flex-direction: row;
     flex-wrap:wrap;
-    width: 100%;
+    width: 90%;
     justify-content: space-around;
     align-items: center;
+    margin: 0 auto;
 }
 
 .driver-info {
@@ -87,7 +117,6 @@ button:hover {
     height: auto;
     margin: 5px 0;
     background-color: #F5F5EF;
-    z-index: 1;
 }
 
 .details-button {

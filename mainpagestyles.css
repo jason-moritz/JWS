@@ -12,9 +12,35 @@ body {
 
 * div {
     border-style: solid;
-    border-width: 2px;
+    border-width: 4px;
 }
 
+/* **********TOP HEADER STYLING********** */
+
+#header-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: medium;
+}
+
+#app-name {
+    display: flex;
+    margin: 0;
+}
+
+#links-container {
+    display: flex;
+    border-style: none;
+    flex-direction: row;
+    
+} 
+
+.header-link {
+    display: flex;
+    margin: 2px;
+}
 
 /* **********NAV BAR STYLING********** */
 
@@ -27,7 +53,7 @@ nav {
     justify-content: center;
     height: 10%;
     border-style: solid;
-    border-width: 1px;
+    border-width: 4px;
     border-color: black;
     border-radius: 0;
 }
@@ -65,7 +91,8 @@ select, button {
 }
 
 button {
-    border-style:groove;
+    border-style:solid;
+    border-width: 2px;
     background-color: #E6E2E2;
     box-shadow: 0px 3px 5px #555454;
 }
@@ -76,6 +103,8 @@ select:hover, button:hover {
 
 select {
     margin-left: 20px;
+    border-style: solid;
+    border-width: 2px;
 }
 
 #button {
@@ -368,6 +397,9 @@ select {
         width: 100%;
     }
     
+    #header-container {
+        font-size: small;
+    }
     #nav-bar {
         display: flex;
         justify-content: center;

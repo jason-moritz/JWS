@@ -4,6 +4,7 @@
 const baseURL = "http://ergast.com/api/f1/";
 
 
+
 // Need axios request to get all driver info starting from 1950
 
 async function driverListAPI(offset) {
@@ -76,110 +77,35 @@ let previousPageButtonHTML = document.querySelector("#previous-page");
 let nextPageButtonHTML = document.querySelector("#next-page");
 
 // Need to add event listener for previous and next buttons
+// Need page counter for conditional
 
-previousPageButtonHTML.addEventListener("click", pagesButton);
-nextPageButtonHTML.addEventListener("click", pagesButton);
+let currentPageCount = 0;
 
 
-function pagesButton() {
-if (driverListAPI(0)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(100);
-    });
+previousPageButtonHTML.addEventListener("click", (e) => {
+    if (currentPageCount > 0) {
+        currentPageCount -= 1;
+    }
+
+    if (currentPageCount == 0) {
+        driverListAPI(0);
+
+
+    } else {
+        driverListAPI(currentPageCount * 100);
+    }   
+});
+
+
+nextPageButtonHTML.addEventListener("click", (e) => {
+    currentPageCount += 1;
     
 
-    previousPageButtonHTML.addEventListener("click", (e) => {
+    if (currentPageCount == 0) {
         driverListAPI(0);
-    });
-    
 
-} else if (driverListAPI(100)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(200);
-        console.log(e)
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(0);
-    });
-
-
-} else if (driverListAPI(200)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(300);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(100);
-    });
-
-
-} else if (driverListAPI(300)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(400);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(200);
-    });
-
-
-} else if (driverListAPI(400)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(500);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(300);
-    });
-
-
-} else if (driverListAPI(500)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(600);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(400);
-    });
-
-
-} else if (driverListAPI(600)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(700);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(500);
-    });
-
-
-} else if (driverListAPI(700)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(800);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(600);
-    });
-
-
-} else if (driverListAPI(800)) {
-    nextPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(900);
-    });
-
-
-    previousPageButtonHTML.addEventListener("click", (e) => {
-        driverListAPI(700);
-    });
-}
-}
-
+        
+    } else {
+        driverListAPI(currentPageCount * 100);
+    }   
+});
