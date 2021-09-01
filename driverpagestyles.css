@@ -34,7 +34,17 @@ body {
 
 .header-link {
     display: flex;
-    margin: 2px;
+    text-decoration: none;
+    margin: 0 5px;
+    transition: 100ms;
+}
+
+.header-link:visited {
+    color: black;
+}
+
+.header-link:hover {
+    transform: scale(1.1);
 }
 
 /* **********NAV STYLING********** */
@@ -148,9 +158,10 @@ button:hover {
     margin: 0 0 5px 0;
 }
 
-/* **********MEDIA CHANGES for 800px********** */
+/* **********MEDIA CHANGES for 1200px, 950px, 600px, 450px********** */
 
 @media only screen and (max-width: 1200px) {
+    
     .driver-info {
         width: 20%;
     } 
@@ -158,18 +169,29 @@ button:hover {
 
 
 @media only screen and (max-width: 950px) {
+    
     .driver-info {
         width: 30%;
     } 
 }
 
 @media only screen and (max-width: 600px) {
+    
     .driver-info {
         width: 40%;
     } 
 }
 
 @media only screen and (max-width: 450px) {
+    
+    #title {
+        font-size: x-large;
+    }
+
+    #directions {
+        font-size: medium;
+    }
+
     .driver-info {
         width: 90%;
     } 
