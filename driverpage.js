@@ -103,7 +103,8 @@ nextPageButtonHTML.addEventListener("click", (e) => {
     currentPageCount += 1;
     
 
-    if (currentPageCount == 0) {
+    if (currentPageCount == 9) {
+        currentPageCount = 0;
         driverListAPI(0);
 
         

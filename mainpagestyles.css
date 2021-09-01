@@ -42,6 +42,7 @@ body {
 .header-link {
     display: flex;
     text-decoration: none;
+    color: black;
     margin: 0 5px;
     transition: 100ms;
 }
@@ -87,6 +88,7 @@ label {
 
 select, button {
     display: flex;
+    align-items: center;
     font-size: x-large;
     background-color: #D7D6D8;
     color: black;
@@ -116,6 +118,7 @@ select {
 
 #button {
     margin-left: 20px;
+
 }
 
 /* **********DIRECTIONS DIV STYLING********** */
