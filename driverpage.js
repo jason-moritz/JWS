@@ -55,7 +55,7 @@ function displayDrivers(firstName, lastName, nationality, dob, url, element1, el
     
 
     driverDiv.classList.add("driver-info");
-
+    detailsButton.classList.add("details-button");
     
     driverDiv.append(nameDiv);
     driverDiv.append(nationalityDiv);
