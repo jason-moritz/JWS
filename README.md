@@ -127,7 +127,7 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 |August 30| Project Approval / Core Application Structure (HTML, CSS, etc.) | Complete
 |August 31| Pseudocode / actual code | Complete
 |September 1| Initial Clickable Model / MVP  | Complete
-|September 2| Post MVP / Advanced CSS | Incomplete
+|September 2| Post MVP / Advanced CSS | Complete
 |September 3| Presentations | Incomplete
 
 ## Priority Matrix
