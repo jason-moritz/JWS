@@ -77,7 +77,11 @@ let nextPageButtonHTML = document.querySelector("#next-page");
 
 // Need to add event listener for previous and next buttons
 
+previousPageButtonHTML.addEventListener("click", pagesButton);
+nextPageButtonHTML.addEventListener("click", pagesButton);
 
+
+function pagesButton() {
 if (driverListAPI(0)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(100);
@@ -89,12 +93,10 @@ if (driverListAPI(0)) {
     });
     
 
-}
-
-
-if (driverListAPI(100)) {
+} else if (driverListAPI(100)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(200);
+        console.log(e)
     });
 
 
@@ -103,10 +105,7 @@ if (driverListAPI(100)) {
     });
 
 
-}
-
-
-if (driverListAPI(200)) {
+} else if (driverListAPI(200)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(300);
     });
@@ -117,10 +116,7 @@ if (driverListAPI(200)) {
     });
 
 
-}
-
-
-if (driverListAPI(300)) {
+} else if (driverListAPI(300)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(400);
     });
@@ -131,10 +127,7 @@ if (driverListAPI(300)) {
     });
 
 
-}
-
-
-if (driverListAPI(400)) {
+} else if (driverListAPI(400)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(500);
     });
@@ -145,10 +138,7 @@ if (driverListAPI(400)) {
     });
 
 
-}
-
-
-if (driverListAPI(500)) {
+} else if (driverListAPI(500)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(600);
     });
@@ -159,10 +149,7 @@ if (driverListAPI(500)) {
     });
 
 
-}
-
-
-if (driverListAPI(600)) {
+} else if (driverListAPI(600)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(700);
     });
@@ -173,10 +160,7 @@ if (driverListAPI(600)) {
     });
 
 
-}
-
-
-if (driverListAPI(700)) {
+} else if (driverListAPI(700)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(800);
     });
@@ -187,10 +171,7 @@ if (driverListAPI(700)) {
     });
 
 
-}
-
-
-if (driverListAPI(800)) {
+} else if (driverListAPI(800)) {
     nextPageButtonHTML.addEventListener("click", (e) => {
         driverListAPI(900);
     });
@@ -200,5 +181,5 @@ if (driverListAPI(800)) {
         driverListAPI(700);
     });
 }
-
+}
 

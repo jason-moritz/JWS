@@ -1,12 +1,30 @@
 body {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    align-items: center;
     border-style: solid;
+    font-family: 'Architects Daughter', cursive, Arial, Helvetica, sans-serif;
 }
 nav {
     border-style: solid;
+    background-color: #D30F0F;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title {
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 header {
     border-style: solid;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
 }
 
 #driver-list {
