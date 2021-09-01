@@ -8,6 +8,17 @@ nav {
 header {
     border-style: solid;
 }
-*div {
+
+#driver-list {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.driver-info {
     border-style: solid;
 }
+
