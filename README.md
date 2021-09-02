@@ -159,45 +159,4 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 ## Code Snippet
 
-This code allows me to move page to page, and pull multiple axios requests with one single async function.
-
-```
-let previousPageButtonHTML = document.querySelector("#previous-page");
-let nextPageButtonHTML = document.querySelector("#next-page");
-
-// Need to add event listener for previous and next buttons
-// Need page counter for conditional
-
-let currentPageCount = 0;
-
-
-previousPageButtonHTML.addEventListener("click", (e) => {
-    if (currentPageCount > 0) {
-        currentPageCount -= 1;
-    }
-
-    if (currentPageCount == 0) {
-        driverListAPI(0);
-
-
-    } else {
-        driverListAPI(currentPageCount * 100);
-    }   
-});
-
-
-nextPageButtonHTML.addEventListener("click", (e) => {
-    currentPageCount += 1;
-    
-
-    if (currentPageCount == 0) {
-        driverListAPI(0);
-
-        
-    } else {
-        driverListAPI(currentPageCount * 100);
-    }   
-});
-```
-
 ## Change Log
