@@ -75,8 +75,9 @@ body {
     display: flex;
     border-style: none;
     width: 100%;
-    justify-content: space-around;
-    align-content: space-around;
+    justify-content: center;
+    justify-items: center;
+    align-content:space-between;
     align-items: center;
     font-size: x-large;
     font-weight: bold;
@@ -119,7 +120,10 @@ select {
 
 #button {
     margin-left: 20px;
+}
 
+#year-selector {
+    margin-right: 20px;
 }
 
 /* **********DIRECTIONS DIV STYLING********** */
@@ -232,7 +236,6 @@ select {
 /* **********MEDIA CHANGES for 1200px, 800px, 500px, 400px********** */
 
 @media only screen and (max-width: 1200px) {
-    
     .results {
         font-size: medium;
     }
@@ -243,7 +246,6 @@ select {
 }
 
 @media only screen and (max-width: 800px) {
-
     #drop-down {
         font-size: medium;
     }
@@ -254,6 +256,10 @@ select {
 
     select, #button {
         margin-left: 2px;
+    }
+
+    #year-selector {
+        margin-right: 2px;
     }
 
     #instructions h4 {
@@ -270,7 +276,6 @@ select {
 }
 
 @media only screen and (max-width: 500px) {
-
     #drop-down {
         font-size: small;
     }
@@ -299,7 +304,6 @@ select {
 }
 
 @media only screen and (max-width: 400px) {
-
     #drop-down {
         display: flex;
         flex-direction: column;

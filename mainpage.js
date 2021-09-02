@@ -99,9 +99,10 @@ async function raceButtonAPI(event) {
 
 
         let resultArr = response.data.MRData.RaceTable.Races[0].Results;
-        console.log(resultArr[0])
+
 
         // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
+
         if (resultArr[0].Driver.givenName == "Lewis") {
             displayResults("h3", "h5", `${resultArr[0].Driver.givenName} THE GOAT ${resultArr[0].Driver.familyName}`, `${resultArr[0].Constructor.name}`, `${resultArr[1].Driver.givenName} ${resultArr[1].Driver.familyName}`, `${resultArr[1].Constructor.name}`, `${resultArr[2].Driver.givenName} ${resultArr[2].Driver.familyName}`, `${resultArr[2].Constructor.name}`);
         
@@ -242,7 +243,7 @@ async function displayDetailsAPI(id) {
 
 
         } else {
-            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, "", resultsDiv[id], "h5", "h6");
+            displayDetails(`Total Time: ${detailsArr[id].Time.time}`, `Total Laps: ${detailsArr[id].laps}`, resultsDiv[id], "h5", "h5");
         }
 
 
@@ -276,71 +277,117 @@ function displayDetails(totalTime, fastestLap, location, size1, size2) {
         newButton.innerText = "Results";
         location.append(newButton);
 
+
+        if (location === resultsDiv[0]) {
+            newButton.setAttribute("id", 0);
+        } else if (location === resultsDiv[1]) {
+            newButton.setAttribute("id", 1);
+        } else {
+            newButton.setAttribute("id", 2)
+        }
         
-        newButton.addEventListener("click", raceButtonAPI);
+        newButton.addEventListener("click", (e) => {
+            returnResultButtonAPI(e.target.id);
+        });
 }
 
 
 // Need new async function for details button event listener to return to race results for single driver
 
-// async function returnResultButtonAPI(event) {
-//     try {
-//         event.preventDefault();
+async function returnResultButtonAPI(id) {
+    try {
 
 
-//         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
+        const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
 
 
-//         let returnResultArr = response.data.MRData.RaceTable.Races[0].Results;
-//         console.log(detailsArr);
+        let returnResultArr = response.data.MRData.RaceTable.Races[0].Results;
 
-//         // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
-//         
-            // if (returnResultArr[event].Driver.givenName == "Lewis" && returnResultArr[event].position == 1) {
-//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} THE GOAT ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
+        // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
+        
+        if (returnResultArr[id].Driver.givenName == "Lewis" && returnResultArr[id].position == 1) {
+            returnToResult("h3", "h5", "button", `${returnResultArr[id].Driver.givenName} THE GOAT ${returnResultArr[id].Driver.familyName}`, `${returnResultArr[id].Constructor.name}`, id);
         
         
-//         } else if (returnResultArr[1].Driver.givenName == "Lewis" && returnResultArr[event].position == 2) {
-//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} 'Bono, my tires' ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
+        } else if (returnResultArr[id].Driver.givenName == "Lewis" && returnResultArr[id].position == 2) {
+            returnToResult("h3", "h5", "button", `${returnResultArr[id].Driver.givenName} 'Bono, my tires' ${returnResultArr[id].Driver.familyName}`, `${returnResultArr[id].Constructor.name}`, id);
         
 
-//         } else {
-//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
-//         }
+        } else {
+            returnToResult("h3", "h5", "button", `${returnResultArr[id].Driver.givenName} ${returnResultArr[id].Driver.familyName}`, `${returnResultArr[id].Constructor.name}`, id);
+        }
 
 
-//     } catch(error) {
-//         console.log(error);
-//     }
-// }
+    } catch(error) {
+        console.log(error);
+    }
+}
 
-// function returnToResult(size1, size2, element, name1, team1, event) {
-//     removeInfo();    
 
-// // Created 3 separate elements instead of forEach loop to assign and append individually. Re-visit to increase efficiency. 
-//     let returnName = document.createElement(size1);
-//     let returnTeam = document.createElement(size2);
-//     let returnButton = document.createElement(element);
+function returnToResult(size1, size2, element, name1, team1, event) {
+    removeDetail(event);    
 
-//     firsName.innerText = name1;
-//     firstPlaceTeam.innerText = team1;
 
-        // if (event == 0) {
-            // firstPlaceResultsHTML.append(firstPlaceName);
-            // firstPlaceResultsHTML.append(firstPlaceTeam);
-            // firstPlaceResultsHTML.append(returnButton);
-        // } else if (event == 1) {
-            // secondPlaceResultsHTML.append(firstPlaceName);
-            // secondPlaceResultsHTML.append(firstPlaceTeam);
-            // secondPlaceResultsHTML.append(returnButton);
-        // } else {
-            // thirdPlaceResultsHTML.append(firstPlaceName);
-            // thirdPlaceResultsHTML.append(firstPlaceTeam);
-            // thirdPlaceResultsHTML.append(returnButton);
-        // }
-//     
+// Created 3 separate elements instead of forEach loop to assign and append individually. Re-visit to increase efficiency. 
+    
+    let returnName = document.createElement(size1);
+    let returnTeam = document.createElement(size2);
+    let returnButton = document.createElement(element);
 
+
+    returnName.innerText = name1;
+    returnTeam.innerText = team1;
+    returnButton.innerText = "Details";
+
+
+    if (event == 0) {
+        firstPlaceResultsHTML.append(returnName);
+        firstPlaceResultsHTML.append(returnTeam);
+        firstPlaceResultsHTML.append(returnButton);
+
+
+    } else if (event == 1) {
+        secondPlaceResultsHTML.append(returnName);
+        secondPlaceResultsHTML.append(returnTeam);
+        secondPlaceResultsHTML.append(returnButton);
+
+
+    } else {
+        thirdPlaceResultsHTML.append(returnName);
+        thirdPlaceResultsHTML.append(returnTeam);
+        thirdPlaceResultsHTML.append(returnButton);
+    }
+
+
+    if (event == 0) {
+        returnButton.setAttribute("id", 0);
+
+
+    } else if (event == 1) {
+        returnButton.setAttribute("id", 1);
+
+
+    } else {
+        returnButton.setAttribute("id", 2)
+    }
         
 
-//     
-// }
+    returnButton.addEventListener("click", (e) => {
+        displayDetailsAPI(e.target.id);
+    });
+}
+
+
+function removeDetail(event) {
+    if (event == 0) {
+        firstPlaceResultsHTML.innerHTML = "";
+        
+        
+    } else if (event == 1) {
+        secondPlaceResultsHTML.innerHTML = "";
+        
+
+    } else {
+        thirdPlaceResultsHTML.innerHTML = "";
+    }
+}
