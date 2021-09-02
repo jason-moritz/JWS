@@ -65,11 +65,14 @@ dropDownCircuitsAPI();
 // Need function to append circuit name to drop down box
 
 function dropDownCircuits(circuits) {
+
 // First, clear old circuit results
+
     dropDownCircuitsHTML.innerText = "";
 
 
 // Loop through array of circuits and create option and append each circuit
+
     circuits.forEach((circuit) => {
         const option = document.createElement("option");
         option.innerText = circuit.raceName;
@@ -190,6 +193,7 @@ function displayResults(size1, size2, name1, team1, name2, team2, name3, team3) 
 }
 
 // Made buttons separate function. Not sure if necessary or more efficient than having this in the display results function above.
+
 function addButtons() {
     let firstPlaceButton = document.createElement("button");
     let secondPlaceButton = document.createElement("button");
@@ -280,12 +284,17 @@ function displayDetails(totalTime, fastestLap, location, size1, size2) {
 
         if (location === resultsDiv[0]) {
             newButton.setAttribute("id", 0);
+
+
         } else if (location === resultsDiv[1]) {
             newButton.setAttribute("id", 1);
+
+
         } else {
             newButton.setAttribute("id", 2)
         }
         
+
         newButton.addEventListener("click", (e) => {
             returnResultButtonAPI(e.target.id);
         });
@@ -296,13 +305,12 @@ function displayDetails(totalTime, fastestLap, location, size1, size2) {
 
 async function returnResultButtonAPI(id) {
     try {
-
-
         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
 
 
         let returnResultArr = response.data.MRData.RaceTable.Races[0].Results;
 
+        
         // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
         
         if (returnResultArr[id].Driver.givenName == "Lewis" && returnResultArr[id].position == 1) {
