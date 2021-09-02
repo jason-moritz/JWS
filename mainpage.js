@@ -99,7 +99,7 @@ async function raceButtonAPI(event) {
 
 
         let resultArr = response.data.MRData.RaceTable.Races[0].Results;
-
+        console.log(resultArr[0])
 
         // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
         if (resultArr[0].Driver.givenName == "Lewis") {
@@ -218,19 +218,6 @@ function addButtons() {
             displayDetailsAPI(e.target.id);
         });
     });
-
-
-    // firstPlaceButton.addEventListener("click", (e) => {
-    //     displayDetailsAPI(e.target.id);
-    //     })
-
-    // secondPlaceButton.addEventListener("click", (e) => {
-    //     displayDetailsAPI(e.target.id);
-    //     })
-
-    // thirdPlaceButton.addEventListener("click", (e) => {
-    //     displayDetailsAPI(e.target.id);
-    //      })
 }
 
 
@@ -242,7 +229,7 @@ let resultsDiv = document.querySelectorAll(".results");
 // Need function to display details
 // Need conditional to determine if fastest lap is available
 
-async function displayDetailsAPI(id) {   
+async function displayDetailsAPI(id) {
     try {
         let response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`)
         let detailsArr = response.data.MRData.RaceTable.Races[0].Results;
@@ -292,3 +279,68 @@ function displayDetails(totalTime, fastestLap, location, size1, size2) {
         
         newButton.addEventListener("click", raceButtonAPI);
 }
+
+
+// Need new async function for details button event listener to return to race results for single driver
+
+// async function returnResultButtonAPI(event) {
+//     try {
+//         event.preventDefault();
+
+
+//         const response = await axios.get(`${baseURL}${dropDownYearHTML.value}/${dropDownCircuitsHTML.value}/results.json`);
+
+
+//         let returnResultArr = response.data.MRData.RaceTable.Races[0].Results;
+//         console.log(detailsArr);
+
+//         // This conditional is purely for trolling purposes (if you follow F1 and a Hamilton fan, this makes a lot more sense)
+//         
+            // if (returnResultArr[event].Driver.givenName == "Lewis" && returnResultArr[event].position == 1) {
+//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} THE GOAT ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
+        
+        
+//         } else if (returnResultArr[1].Driver.givenName == "Lewis" && returnResultArr[event].position == 2) {
+//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} 'Bono, my tires' ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
+        
+
+//         } else {
+//             returnToResult("h3", "h5", "button", `${returnResultArr[event].Driver.givenName} ${returnResultArr[event].Driver.familyName}`, `${returnResultArr[event].Constructor.name}`, event);
+//         }
+
+
+//     } catch(error) {
+//         console.log(error);
+//     }
+// }
+
+// function returnToResult(size1, size2, element, name1, team1, event) {
+//     removeInfo();    
+
+// // Created 3 separate elements instead of forEach loop to assign and append individually. Re-visit to increase efficiency. 
+//     let returnName = document.createElement(size1);
+//     let returnTeam = document.createElement(size2);
+//     let returnButton = document.createElement(element);
+
+//     firsName.innerText = name1;
+//     firstPlaceTeam.innerText = team1;
+
+        // if (event == 0) {
+            // firstPlaceResultsHTML.append(firstPlaceName);
+            // firstPlaceResultsHTML.append(firstPlaceTeam);
+            // firstPlaceResultsHTML.append(returnButton);
+        // } else if (event == 1) {
+            // secondPlaceResultsHTML.append(firstPlaceName);
+            // secondPlaceResultsHTML.append(firstPlaceTeam);
+            // secondPlaceResultsHTML.append(returnButton);
+        // } else {
+            // thirdPlaceResultsHTML.append(firstPlaceName);
+            // thirdPlaceResultsHTML.append(firstPlaceTeam);
+            // thirdPlaceResultsHTML.append(returnButton);
+        // }
+//     
+
+        
+
+//     
+// }
