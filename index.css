@@ -314,7 +314,7 @@ select {
     select {
         display: flex;
         justify-content: space-around;
-        font-size: medium;
+        font-size: small;
         width: 100%;
         margin-left: 3px;
     }
@@ -324,7 +324,7 @@ select {
         justify-content: space-around;
         width: 100%;
         align-items: center;
-        font-size: medium;
+        font-size: small;
         margin: 0;
     }
 
