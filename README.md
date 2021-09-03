@@ -150,9 +150,14 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 | CSS style details div | M | 1hr | 1hr | 17hrs |
 | CSS breakpoint styling | H | 3hrs | 2hrs | 19hrs |
 | HTML setup for flexbox | H | 1hr | 1hr | 20hrs |
-| CSS flexbox styling | H | 3hrs | 5hrs | 25hrs |
-| CSS advanced styling | M | 3hrs | 5hr | 30hrs |
-| Total | H | 40hrs |  | 30hrs |
+| CSS flexbox styling | H | 3hrs | 7hrs | 27hrs |
+| CSS advanced styling | M | 3hrs | 5hr | 32hrs |
+| JS Independent button logic | M | 3hr | 5hr | 37hrs |
+| HTML Driver page structure | L | 1hrs | .5hrs | 37.5hrs |
+| CSS Driver page styling | L | 3hrs | 5hr | 42.5hrs |
+| JS Driver page button logic | M | 3hrs | 3hr | 45.5hrs |
+| JS Easter egg additions | L | 2hr | 2hr | 47.5hrs |
+| Total |  | 40hrs |  | 47.5hrs |
 
 
 ## Code Snippet
