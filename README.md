@@ -1,6 +1,6 @@
 # Project Overview
 
-[Link to Deployed Site!](https://lukewarmsoup1486.github.io/JWS/ "Link to deployed site")
+[Link to deployed site!](https://lukewarmsoup1486.github.io/JWS/ "Link to deployed site")
 
 ## Project Name
 
