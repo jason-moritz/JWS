@@ -161,5 +161,5 @@ JWS is an app that allows users to search for Formula 1 race results by year and
 
 #### Post-MVP Removals:
 - Removed hamburger bar as it was not needed
-- Removed Fastest Lap Comparison because info was not logged until 2005
+- Removed Fastest Lap Comparison because info was not logged until 2004
 - Removed Constructor List as Driver Page contains this info

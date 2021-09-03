@@ -98,7 +98,7 @@ previousPageButtonHTML.addEventListener("click", (e) => {
     }
 
     if (currentPageCount == 0) {
-        driverListAPI(0);
+        driverListAPI(800);
 
 
     } else {
