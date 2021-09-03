@@ -1,7 +1,7 @@
 // Set base url
 // Get div to place driver info
 
-const baseURL = "http://ergast.com/api/f1/";
+const baseURL = "https://ergast.com/api/f1/";
 
 
 

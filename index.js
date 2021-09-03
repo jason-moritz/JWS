@@ -1,6 +1,6 @@
 // Set base url
 
-const baseURL = "http://ergast.com/api/f1/";
+const baseURL = "https://ergast.com/api/f1/";
 
 
 // **********DROP DOWN YEAR SELECT BOX**********
